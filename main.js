@@ -1,5 +1,7 @@
 // Variables
 let selectedP, selectedC;
+let scoreP = 0;
+let scoreC = 0;
 
 // Computer play
 let computerSelection = function () {
@@ -42,23 +44,39 @@ let playRound = function () {
   } else if (selectedP === "rock") {
     if (selectedC === "paper") {
       console.log(`The computer has won!`);
+      scoreC++;
     } else {
       console.log("You have won!");
+      scoreP++;
     }
   } else if (selectedP === "paper") {
     if (selectedC === "scissor") {
       console.log(`The computer has won!`);
+      scoreC++;
     } else {
       console.log(`You have won!`);
+      scoreP++;
     }
   } else if (selectedP === "scissor") {
     if (selectedC === "rock") {
       console.log(`The computer has won!`);
+      scoreC++;
     } else {
       console.log(`You have won!`);
+      scoreP++;
     }
   }
   console.log(`Computer has picked ${selectedC}, and player ${selectedP}`);
 };
 
-playRound();
+let playGame = function () {
+  for (let i = 1; i <= 5; i++) {
+    playRound();
+    console.log(`Round ${i}`);
+  }
+  scoreP > scoreC
+    ? console.log(`Player has won with a score of ${scoreP} over 5`)
+    : console.log(`Computer has won with a score of ${scoreC} over 5`);
+};
+
+playGame();
