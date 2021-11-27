@@ -4,9 +4,94 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rock Paper Scissors!</title>
+    <link
+      rel="shortcut icon"
+      href="./icons/rock-paper-scissors.png"
+      type="image/x-icon"
+    />
+    <title>| Rock Paper Scissor!</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <nav>
+      <img
+        class="logo"
+        src="./icons/rock-paper-scissors.png"
+        alt="An image with rock, paper and scissor."
+      />
+
+      <li class="links">
+        <ul>
+          <a href="http://" target="_blank" rel="noopener noreferrer"
+            >How to play</a
+          >
+        </ul>
+        <ul>
+          <a
+            href="http://theodinproject.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >The Odin Project</a
+          >
+        </ul>
+      </li>
+    </nav>
+    <section>
+      <h1>Rock, Paper or Scissor!</h1>
+      <div class="players">
+        <div class="human">
+          <h3>Human</h3>
+          <p class="p-decision">Make a decision!</p>
+          <li class="human-decision">
+            <ul>
+              <img class="rps" src="./icons/rock.png" alt="Image of a rock." />
+            </ul>
+            <ul>
+              <img class="rps" src="./icons/paper.png" alt="Image of paper." />
+            </ul>
+            <ul>
+              <img
+                class="rps"
+                src="./icons/scissors.png"
+                alt="Image of scissor."
+              />
+            </ul>
+          </li>
+        </div>
+        <div class="info">
+          <p class="p-info">Round: 1</p>
+          <div class="score">Game Score: 1 - 0</div>
+        </div>
+        <div class="computer">
+          <h3>Computer</h3>
+          <p class="p-decision">Computer's decision.</p>
+          <li class="computer-decision">
+            <ul>
+              <img
+                class="rps"
+                src="./icons/scissors.png"
+                alt="Image of scissor."
+              />
+            </ul>
+          </li>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <p>Made with coffee</p>
+      <p>|</p>
+      <a
+        class="gh-icon"
+        target="_blank"
+        href="https://github.com/ManuelEscribano"
+      >
+        <img
+          class="gh-icon"
+          src="./icons/github.png"
+          alt="An icon of Github redirecting you to my profile"
+        />
+      </a>
+    </footer>
     <script src="./main.js"></script>
   </body>
 </html>
