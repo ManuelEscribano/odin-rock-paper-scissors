@@ -85,6 +85,10 @@ section {
   font-size: 20px;
   font-weight: 700;
   padding-bottom: 30px;
+  padding: 50px;
+  border: 2px solid gainsboro;
+  border-radius: 30px;
+  background-color: #34566b;
 }
 
 h3 {
