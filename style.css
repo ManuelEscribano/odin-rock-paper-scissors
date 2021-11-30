@@ -73,6 +73,7 @@ section {
   border-radius: 30px;
   background-color: #457b9d;
   width: 320px;
+  height: 220px;
 }
 
 .info {
@@ -106,6 +107,10 @@ h3 {
 .rps {
   height: 80px;
   width: 80px;
+}
+
+#computer-selection {
+  display: none;
 }
 
 .log {
