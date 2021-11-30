@@ -1,82 +1,77 @@
-// // Variables
-// let selectedP, selectedC;
-// let scoreP = 0;
-// let scoreC = 0;
+// Variables
+let playerChoice, computerChoice;
+let playerScore = 0;
+let computerScore = 0;
 
-// // Computer play
-// let computerSelection = function () {
-//   const randomNum = Math.floor(Math.random() * 3) + 1;
-//   switch (randomNum) {
-//     case 1:
-//       selectedC = "rock";
-//       return selectedC;
-//     case 2:
-//       selectedC = "paper";
-//       return selectedC;
-//     default:
-//       selectedC = "scissor";
-//       return selectedC;
-//   }
-// };
+let roundNumber = 0;
+const userName = prompt(`Please enter your name:
+\n`);
+const rpsOptions = Array.from(
+  document.querySelector(".human-decision").children
+);
+let computerImg = document.querySelector("#computer-selection");
+let roundElement = document.querySelector(".round-info");
+let scoreElement = document.querySelector(".score");
 
-// // Player selection
-// let playerSelection = function () {
-//   do {
-//     selectedP = prompt(
-//       `Choose your weapon!
-//       \n Will you take "Rock", "Paper" or "Scissor"?
-//       \n`
-//     ).toLowerCase();
-//   } while (
-//     selectedP != "rock" &&
-//     selectedP != "paper" &&
-//     selectedP != "scissor"
-//   );
-//   return selectedP;
-// };
+// update userName
+userName
+  ? (document.getElementById("player-name").textContent = userName)
+  : null;
 
-// // Play round.
-// let playRound = function () {
-//   playerSelection();
-//   computerSelection();
-//   if (selectedP === selectedC) {
-//     console.log(`It's a tie`);
-//   } else if (selectedP === "rock") {
-//     if (selectedC === "paper") {
-//       console.log(`The computer has won!`);
-//       scoreC++;
-//     } else {
-//       console.log("You have won!");
-//       scoreP++;
-//     }
-//   } else if (selectedP === "paper") {
-//     if (selectedC === "scissor") {
-//       console.log(`The computer has won!`);
-//       scoreC++;
-//     } else {
-//       console.log(`You have won!`);
-//       scoreP++;
-//     }
-//   } else if (selectedP === "scissor") {
-//     if (selectedC === "rock") {
-//       console.log(`The computer has won!`);
-//       scoreC++;
-//     } else {
-//       console.log(`You have won!`);
-//       scoreP++;
-//     }
-//   }
-//   console.log(`Computer has picked ${selectedC}, and player ${selectedP}`);
-// };
+// Update score
+let updateScoreAndRound = function () {
+  roundElement.textContent = `Round: ${roundNumber}`;
+  scoreElement.textContent = `Game Score: ${playerScore} - ${computerScore}`;
+};
 
-// let playGame = function () {
-//   for (let i = 1; i <= 5; i++) {
-//     playRound();
-//     console.log(`Round ${i}`);
-//   }
-//   scoreP > scoreC
-//     ? console.log(`Player has won with a score of ${scoreP} over 5`)
-//     : console.log(`Computer has won with a score of ${scoreC} over 5`);
-// };
+// Computer selection.
+let computerSelection = function () {
+  let options = ["rock", "paper", "scissor"];
+  let randomNum = Math.floor(Math.random() * 3);
+  computerChoice = options[randomNum];
+  computerImg.style.display = "block";
+  computerImg.src = `./icons/${options[randomNum]}.png`;
+  computerImg.alt = `An image of a ${options[randomNum]}`;
+  return computerChoice;
+};
 
-// playGame();
+// Player Selection
+rpsOptions.forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    // Play round.
+    if (e.target.className === "rps") {
+      computerSelection();
+      playerChoice = e.target.id;
+    }
+    if (playerChoice === computerChoice) {
+      roundNumber++;
+      updateScoreAndRound();
+      console.log("Its a tie!");
+    } else if (playerChoice === "rock") {
+      if (computerChoice === "paper") {
+        computerScore++, roundNumber++;
+        updateScoreAndRound();
+      } else {
+        playerScore++, roundNumber++;
+        updateScoreAndRound();
+      }
+    } else if (playerChoice === "paper") {
+      if (computerChoice === "scissor") {
+        computerScore++, roundNumber++;
+        updateScoreAndRound();
+      } else {
+        playerScore++, roundNumber++;
+        updateScoreAndRound();
+      }
+    } else if (playerChoice === "scissor") {
+      if (computerChoice === "rock") {
+        computerScore++, roundNumber++;
+        updateScoreAndRound();
+      } else {
+        playerScore++, roundNumber++;
+        updateScoreAndRound();
+      }
+    }
+  });
+});
