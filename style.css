@@ -26,9 +26,52 @@ a:hover {
   color: #a8dadc;
 }
 
+/* | Modal window */
+.modal {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  gap: 80px;
+  font-size: 40px;
+  /* border: 3px solid gainsboro; */
+  /* left: 0; */
+  /* right: 0; */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.restart,
+#closeBtn {
+  border: 2px solid gainsboro;
+  border-radius: 18px;
+  padding: 10px 25px 10px 25px;
+  font-size: 30px;
+}
+
+.restart:hover {
+  cursor: pointer;
+  background-color: silver;
+  color: black;
+}
+
+#closeBtn:hover {
+  cursor: pointer;
+  background-color: silver;
+  color: black;
+}
+
 /* | Nav bar */
 nav {
-  /* background-color: #6694b1; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -44,6 +87,7 @@ nav {
 }
 
 .links {
+  font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -68,6 +112,7 @@ section {
   justify-content: center;
 }
 
+/* | Players section */
 .players {
   display: flex;
   align-items: center;
@@ -143,6 +188,7 @@ h3 {
   margin: 50px;
 }
 
+/* | Footer */
 footer {
   background-color: black;
   color: white;
