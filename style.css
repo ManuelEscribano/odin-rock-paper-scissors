@@ -15,13 +15,12 @@ li {
   list-style: none;
 }
 
-/* a:link,
-:visited,
-:active {
+a:link,
+:visited {
   text-decoration: none;
   color: white;
   font-weight: 600;
-} */
+}
 
 a:hover {
   color: #a8dadc;
