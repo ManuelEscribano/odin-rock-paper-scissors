@@ -122,15 +122,17 @@ h3 {
   gap: 40px;
 }
 
-#rock,
-#paper,
-#scissor {
-  cursor: pointer;
-}
-
 .rps {
   height: 80px;
   width: 80px;
+  transition: 0.2s;
+}
+
+#rock:hover,
+#paper:hover,
+#scissor:hover {
+  cursor: pointer;
+  transform: scale(1.2);
 }
 
 #computer-selection {
