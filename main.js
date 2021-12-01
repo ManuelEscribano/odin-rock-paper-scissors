@@ -11,11 +11,12 @@ const rpsOptions = Array.from(
   document.querySelector(".human-decision").children
 );
 let computerImg = document.querySelector("#computer-selection");
-let roundElement = document.querySelector(".round-info");
+let roundElement = document.querySelector(".round-number");
 let scoreElement = document.querySelector(".score");
 let modalWindow = document.querySelector(".modal");
 let closeBtn = document.querySelector("#closeBtn");
-let playAgainBtn = document.querySelector(".restart");
+let playAgainBtns = Array.from(document.getElementsByClassName("restart"));
+let resultRound = document.querySelector("#log");
 let restartBtn;
 
 // | UI
@@ -38,11 +39,13 @@ let displayModal = function () {
 };
 
 // Restart game
-playAgainBtn.addEventListener("click", function () {
-  (playerScore = 0), (computerScore = 0), (roundNumber = 0);
-  modalWindow.style.display = "none";
-  updateScoreAndRound();
-});
+playAgainBtns.forEach((btn) =>
+  btn.addEventListener("click", function () {
+    (playerScore = 0), (computerScore = 0), (roundNumber = 0);
+    modalWindow.style.display = "none";
+    updateScoreAndRound();
+  })
+);
 
 // Close modal window
 closeBtn.addEventListener("click", function (e) {
