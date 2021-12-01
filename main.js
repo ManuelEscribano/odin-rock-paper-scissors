@@ -57,7 +57,9 @@ closeBtn.addEventListener("click", function (e) {
 function updateScoreAndRound() {
   roundElement.textContent = `Round: ${roundNumber}`;
   scoreElement.textContent = `Game Score: ${playerScore} - ${computerScore}`;
-  computerImg.style.display = "none";
+  if (roundNumber === 5) {
+    computerImg.style.display = "none";
+  }
 }
 
 // Computer selection.
